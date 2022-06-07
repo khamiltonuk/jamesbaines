@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Script from "next/script";
+import Image from "next/image";
 
 import Header from "../components/header";
+import gillette1 from "../public/gillette-1.png";
 
 export default function Home() {
   return (
@@ -38,6 +40,7 @@ export default function Home() {
           <p className="text-center">latest Work</p>
           <div className="grid gap-4 grid-cols-3 grid-rows-3">
             <a href="https://vimeo.com/manage/videos/699393579">
+              <Image src={gillette1} alt="" />
               <h3 className="uppercase font-bold">GILLETTE</h3>
               <p>
                 Master Your Style w/ Fred Sirieix Xmas Short Creative Producer /

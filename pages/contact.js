@@ -18,7 +18,9 @@ export default function Home() {
           <p>
             Email –
             <Link href="mailto:jamesjohnbaines@gmail.com">
-              <a>jamesjohnbaines@gmail.com</a>
+              <a className="hover:text-violet-600 focus:text-violet-600">
+                jamesjohnbaines@gmail.com
+              </a>
             </Link>
           </p>
         </div>

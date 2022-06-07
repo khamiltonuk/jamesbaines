@@ -19,24 +19,32 @@ function Header() {
         <ul className="flex items-center justify-center uppercase my-8">
           <li>
             <Link href="/">
-              <a className="px-8 ">Work</a>
+              <a className="px-8 hover:text-violet-600 focus:text-violet-600">
+                Work
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/about-me">
-              <a className="px-8">about</a>
+              <a className="px-8 hover:text-violet-600 focus:text-violet-600">
+                about
+              </a>
             </Link>
           </li>
           <li>
             <Link href="https://www.instagram.com/akajamesbaines/">
               <a
-                className="px-8"
+                className="px-8 hover:text-violet-600 focus:text-violet-600"
                 title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span className="sr-only">Instagram</span>
-                <Image src={instagramIcon} alt="" />
+                <Image
+                  src={instagramIcon}
+                  alt=""
+                  className="fill-blue-500 hover:fill-violet-600 focus:fill-violet-600"
+                />
               </a>
             </Link>
           </li>
@@ -49,7 +57,11 @@ function Header() {
                 rel="noopener noreferrer"
               >
                 <span className="sr-only">linkedin</span>
-                <Image src={linkedinIcon} alt="" />
+                <Image
+                  src={linkedinIcon}
+                  alt=""
+                  className="fill-blue-500 hover:fill-violet-600 focus:fill-violet-600"
+                />
               </a>
             </Link>
           </li>
@@ -62,7 +74,11 @@ function Header() {
                 rel="noopener noreferrer"
               >
                 <span className="sr-only">Vimeo</span>
-                <Image src={vimeoIcon} alt="" />
+                <Image
+                  src={vimeoIcon}
+                  alt=""
+                  className="fill-blue-500 hover:fill-violet-600 focus:fill-violet-600"
+                />
               </a>
             </Link>
           </li>
