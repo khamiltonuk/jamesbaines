@@ -50,7 +50,7 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699393579"
-                className="hover:text-violet-600 text:fill-violet-600 my-4 block"
+                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
               >
                 <Image src={gillette1} alt="" />
                 <h3 className="uppercase font-bold">GILLETTE</h3>
@@ -63,7 +63,7 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699397481"
-                className="hover:text-violet-600 text:fill-violet-600 my-4 block"
+                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
               >
                 <Image src={gillette2} alt="" />
                 <h3 className="uppercase font-bold">GILLETTE</h3>
@@ -76,7 +76,7 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706235869"
-                className="hover:text-violet-600 text:fill-violet-600 my-4 block"
+                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
               >
                 <Image src={microsoft1} alt="" />
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
@@ -89,7 +89,7 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/698688434"
-                className="hover:text-violet-600 text:fill-violet-600 my-4 block"
+                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
               >
                 <Image src={microsoft2} alt="" />
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
@@ -102,7 +102,7 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706241133"
-                className="hover:text-violet-600 text:fill-violet-600 my-4 block"
+                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
               >
                 <Image src={microsoft3} alt="" />
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
