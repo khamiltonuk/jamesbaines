@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import profilePic from "../public/james-john-baines.jpg";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -16,10 +16,12 @@ export default function Home() {
         <Header />
 
         <div className="container mx-auto px-4 max-w-screen-md">
-          <div className="flex">
-            <div className="mr-8">
+          <div className="flex flex-col md:flex-row">
+            <div className="md:mr-8">
               <Image
                 src={profilePic}
+                placeholder="blur"
+                blurDataURL={`/_next/image?url=${profilePic}&w=16&q=1`}
                 alt="James standing in front of a bush, while holding a camera."
               />
             </div>
@@ -43,14 +45,16 @@ export default function Home() {
                 senior client management/counsel, story development, copywriting
                 and photography.
               </p>
-              <p>Call - +44 (0) 798 398 1093 </p>
               <p>
-                Email –{" "}
+                <a href="tel:+447983981093">Call - +44 (0) 798 398 1093</a>
+              </p>
+              <p>
+                Email –
                 <Link href="mailto:jamesjohnbaines@gmail.com">
                   <a className="hover:text-violet-600 focus:text-violet-600">
                     jamesjohnbaines@gmail.com
                   </a>
-                </Link>{" "}
+                </Link>
               </p>
             </div>
           </div>

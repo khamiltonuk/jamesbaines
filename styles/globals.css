@@ -26,3 +26,6 @@ a {
 .header-text {
   font-family: "Bentham", serif;
 }
+.container {
+  margin: 0 auto 100px;
+}
