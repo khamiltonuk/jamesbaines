@@ -46,13 +46,15 @@ export default function Home() {
           <p className="text-center subtitle-text mb-4 uppercase">
             latest Work
           </p>
-          <ul className="grid gap-0 grid-cols-1 grid-rows-1 md:gap-4 md:grid-cols-3 md:grid-rows-3">
+          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-4 md:grid-cols-3 md:grid-rows-3 ">
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699393579"
-                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
+                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
               >
-                <Image src={gillette1} alt="" />
+                <span className="bg-violet-800 block leading-none">
+                  <Image src={gillette1} alt="" />
+                </span>
                 <h3 className="uppercase font-bold">GILLETTE</h3>
                 <p>
                   Master Your Style w/ Fred Sirieix Xmas Short Creative Producer
@@ -63,9 +65,11 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699397481"
-                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
+                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
               >
-                <Image src={gillette2} alt="" />
+                <span className="bg-violet-800 block leading-none">
+                  <Image src={gillette2} alt="" className="hover:opacity-60" />
+                </span>
                 <h3 className="uppercase font-bold">GILLETTE</h3>
                 <p>
                   Master Your Style w/ Fred Sirieix Valentine’s Day Short
@@ -76,9 +80,11 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706235869"
-                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
+                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
               >
-                <Image src={microsoft1} alt="" />
+                <span className="bg-violet-800 block leading-none">
+                  <Image src={microsoft1} alt="" className="hover:opacity-60" />
+                </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | Still in Bed Short Creative Producer |
@@ -89,9 +95,11 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/698688434"
-                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
+                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
               >
-                <Image src={microsoft2} alt="" />
+                <span className="bg-violet-800 block leading-none">
+                  <Image src={microsoft2} alt="" className="hover:opacity-60" />
+                </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | The Delivery Short Creative Producer |
@@ -102,9 +110,11 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706241133"
-                className="hover:text-violet-600 text:fill-violet-600 mb-8 block"
+                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
               >
-                <Image src={microsoft3} alt="" />
+                <span className="bg-violet-800 block leading-none">
+                  <Image src={microsoft3} alt="" className="hover:opacity-60" />
+                </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | Distracting Hubbie Short Creative
