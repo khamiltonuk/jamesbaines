@@ -10,4 +10,8 @@ module.exports = {
     return config;
   },
   reactStrictMode: true,
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };

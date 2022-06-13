@@ -10,6 +10,11 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
+        <meta
+          name="description"
+          content="Hi! I'm James, a freelance senior creative producer with
+                over ten years experience helping brands tell stories."
+        ></meta>
         <link
           href="https://fonts.googleapis.com/css2?family=Bentham&family=Zen+Kaku+Gothic+New:wght@300&display=swap"
           rel="stylesheet"

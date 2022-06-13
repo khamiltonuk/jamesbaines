@@ -22,13 +22,14 @@ export default function Home() {
         <Header />
 
         <div className="container mx-auto px-4 max-w-screen-md">
-          <h3 className="text-center subtitle-text mb-4 uppercase">Showreel</h3>
+          <h2 className="text-center subtitle-text mb-4 uppercase">Showreel</h2>
           <div
             style={{ padding: "56.25% 0 0 0" }}
             className="relative mb-8 bg-black"
           >
             <iframe
               src="https://player.vimeo.com/video/572182219?h=afa1c40c1d&autoplay=1&color=8a5cf6"
+              title="showreel"
               style={{
                 position: "absolute",
                 top: 0,
@@ -43,9 +44,9 @@ export default function Home() {
           </div>
           <Script src="https://player.vimeo.com/api/player.js"></Script>
 
-          <p className="text-center subtitle-text mb-4 uppercase">
+          <h2 className="text-center subtitle-text mb-4 uppercase">
             latest Work
-          </p>
+          </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-4 md:grid-cols-3 md:grid-rows-3 ">
             <li>
               <a
