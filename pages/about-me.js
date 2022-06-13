@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import profilePic from "../public/james-john-baines.jpg";
+import thumb from "../public/thumb.png";
 import Header from "../components/Header";
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
               <Image
                 src={profilePic}
                 placeholder="blur"
-                blurDataURL={`/_next/image?url=${profilePic}&w=16&q=1`}
+                blurDataURL={thumb}
                 alt="James standing in front of a bush, while holding a camera."
               />
             </div>
