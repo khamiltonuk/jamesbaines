@@ -5,11 +5,11 @@ import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import gillette1 from "../public/gillette-1.png";
-import gillette2 from "../public/gillette-2.png";
-import microsoft1 from "../public/microsoft-1.png";
-import microsoft2 from "../public/microsoft-2.png";
-import microsoft3 from "../public/microsoft-3.png";
+import gillette1 from "../public/gillette-1.jpg";
+import gillette2 from "../public/gillette-2.jpg";
+import microsoft1 from "../public/microsoft-1.jpg";
+import microsoft2 from "../public/microsoft-2.jpg";
+import microsoft3 from "../public/microsoft-3.jpg";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
             className="relative mb-8 bg-black"
           >
             <iframe
-              src="https://player.vimeo.com/video/572182219?h=afa1c40c1d&autoplay=1"
+              src="https://player.vimeo.com/video/572182219?h=afa1c40c1d&autoplay=1&color=8a5cf6"
               style={{
                 position: "absolute",
                 top: 0,
@@ -50,9 +50,9 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699393579"
-                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
+                className="hover:text-violet-500 text:fill-violet-500 mb-8 block"
               >
-                <span className="bg-violet-800 block leading-none">
+                <span className="bg-violet-500 block leading-none">
                   <Image src={gillette1} alt="" />
                 </span>
                 <h3 className="uppercase font-bold">GILLETTE</h3>
@@ -65,9 +65,9 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699397481"
-                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
+                className="hover:text-violet-500 text:fill-violet-500 mb-8 block"
               >
-                <span className="bg-violet-800 block leading-none">
+                <span className="bg-violet-500 block leading-none">
                   <Image src={gillette2} alt="" className="hover:opacity-60" />
                 </span>
                 <h3 className="uppercase font-bold">GILLETTE</h3>
@@ -80,9 +80,9 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706235869"
-                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
+                className="hover:text-violet-500 text:fill-violet-500 mb-8 block"
               >
-                <span className="bg-violet-800 block leading-none">
+                <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft1} alt="" className="hover:opacity-60" />
                 </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
@@ -95,9 +95,9 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/698688434"
-                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
+                className="hover:text-violet-500 text:fill-violet-500 mb-8 block"
               >
-                <span className="bg-violet-800 block leading-none">
+                <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft2} alt="" className="hover:opacity-60" />
                 </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
@@ -110,9 +110,9 @@ export default function Home() {
             <li>
               <a
                 href="https://vimeo.com/manage/videos/706241133"
-                className="hover:text-violet-800 text:fill-violet-800 mb-8 block"
+                className="hover:text-violet-500 text:fill-violet-500 mb-8 block"
               >
-                <span className="bg-violet-800 block leading-none">
+                <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft3} alt="" className="hover:opacity-60" />
                 </span>
                 <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>

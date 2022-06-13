@@ -16,7 +16,7 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <span className="sr-only">Instagram</span>
-            <InstagramIcon className="h-8 w-8 hover:fill-violet-800 focus:fill-violet-800" />
+            <InstagramIcon className="h-8 w-8 hover:fill-violet-500 focus:fill-violet-500" />
           </a>
         </Link>
       </li>
@@ -29,7 +29,7 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <span className="sr-only">linkedin</span>
-            <LinkedinIcon className="h-8 w-8 hover:fill-violet-800 focus:fill-violet-800" />
+            <LinkedinIcon className="h-8 w-8 hover:fill-violet-500 focus:fill-violet-500" />
           </a>
         </Link>
       </li>
@@ -42,7 +42,7 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <span className="sr-only">Vimeo</span>
-            <VimeoIcon className="h-4 w-4 hover:fill-violet-800 focus:fill-violet-800" />
+            <VimeoIcon className="h-4 w-4 hover:fill-violet-500 focus:fill-violet-500" />
           </a>
         </Link>
       </li>
