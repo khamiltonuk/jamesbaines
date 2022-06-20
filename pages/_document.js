@@ -13,7 +13,7 @@ export default function Document() {
         <meta name="title" content="James Baines - Producer"></meta>
         <meta
           name="description"
-          content="Hi! I'm James, a freelance senior creative producer with
+          content="Hi! I'm James, a freelance senior creative producer and filmmaker with
                 over ten years experience helping brands tell stories."
         ></meta>
         <link

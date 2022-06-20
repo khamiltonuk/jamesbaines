@@ -3,8 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import profilePic from "../public/james-john-baines.jpg";
+import PhoneIcon from "../public/phone.svg";
+import EmailIcon from "../public/email.svg";
 import thumb from "../public/thumb.png";
+
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -17,8 +21,8 @@ export default function Home() {
         <Header />
 
         <div className="container mx-auto px-4 max-w-screen-md">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:mr-8">
+          <div className="grid md:gap-4 md:grid-cols-2">
+            <div className="">
               <Image
                 src={profilePic}
                 placeholder="blur"
@@ -26,7 +30,7 @@ export default function Home() {
                 alt="James standing in front of a bush, while holding a camera."
               />
             </div>
-            <div>
+            <div className="">
               <p className="mb-8">
                 Hi! I&apos;m James, a freelance senior creative producer with
                 over ten years&apos; experience helping brands tell stories.
@@ -46,19 +50,40 @@ export default function Home() {
                 senior client management/counsel, story development, copywriting
                 and photography.
               </p>
-              <p>
-                <a href="tel:+447983981093">Call - +44 (0) 798 398 1093</a>
-              </p>
-              <p>
-                Email –
-                <Link href="mailto:jamesjohnbaines@gmail.com">
-                  <a className="hover:text-violet-500 focus:text-violet-500">
-                    jamesjohnbaines@gmail.com
-                  </a>
-                </Link>
-              </p>
             </div>
           </div>
+          <div className="flex flex-col md:justify-between md:flex-row my-8">
+            <Link href="tel:+447983981093">
+              <a className="group">
+                <div className="flex items-center mb-4">
+                  <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
+                    <PhoneIcon className="h-8 w-8 fill-white block" />
+                  </div>
+                  <div className="group-hover:text-violet-500 group-focus:text-violet-500">
+                    <p>Call</p>
+                    <p>+44 (0) 798 398 1093</p>
+                  </div>
+                </div>
+              </a>
+            </Link>
+
+            <Link href="mailto:jamesjohnbaines@gmail.com">
+              <a className="group">
+                <div className="flex items-center mb-4">
+                  <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
+                    <EmailIcon className="h-8 w-8 fill-white" />
+                  </div>
+
+                  <div className="group-hover:text-violet-500 group-focus:text-violet-500">
+                    <p>Email</p>
+
+                    <p>jamesjohnbaines@gmail.com</p>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          </div>
+          <Footer />
         </div>
       </main>
     </div>

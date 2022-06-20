@@ -15,14 +15,13 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>James Baines - Producer</title>
+        <title>James Baines - Producer / Filmmaker</title>
       </Head>
 
       <main>
         <Header />
 
-        <div className="container mx-auto px-4 max-w-screen-md">
-          <h2 className="text-center subtitle-text mb-4 uppercase">Showreel</h2>
+        <div className="container mx-auto px-4 md:max-w-screen-lg lg:max-w-screen-xl">
           <div
             style={{ padding: "56.25% 0 0 0" }}
             className="relative mb-8 bg-black"
@@ -47,7 +46,7 @@ export default function Home() {
           <h2 className="text-center subtitle-text mb-4 uppercase">
             latest Work
           </h2>
-          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-4 md:grid-cols-3 md:grid-rows-3 ">
+          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-4 md:grid-cols-2 md:grid-rows-2">
             <li>
               <a
                 href="https://vimeo.com/manage/videos/699393579"
@@ -56,7 +55,7 @@ export default function Home() {
                 <span className="bg-violet-500 block leading-none">
                   <Image src={gillette1} alt="" />
                 </span>
-                <h3 className="uppercase font-bold">GILLETTE</h3>
+                <h3 className="uppercase">GILLETTE</h3>
                 <p>
                   Master Your Style w/ Fred Sirieix Xmas Short Creative Producer
                   / Co-Director | Online
@@ -71,7 +70,7 @@ export default function Home() {
                 <span className="bg-violet-500 block leading-none">
                   <Image src={gillette2} alt="" className="hover:opacity-60" />
                 </span>
-                <h3 className="uppercase font-bold">GILLETTE</h3>
+                <h3 className="uppercase">GILLETTE</h3>
                 <p>
                   Master Your Style w/ Fred Sirieix Valentine’s Day Short
                   Creative Producer / Co-Director | Online
@@ -86,7 +85,7 @@ export default function Home() {
                 <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft1} alt="" className="hover:opacity-60" />
                 </span>
-                <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
+                <h3 className="uppercase">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | Still in Bed Short Creative Producer |
                   TVC
@@ -101,7 +100,7 @@ export default function Home() {
                 <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft2} alt="" className="hover:opacity-60" />
                 </span>
-                <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
+                <h3 className="uppercase">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | The Delivery Short Creative Producer |
                   TVC
@@ -116,7 +115,7 @@ export default function Home() {
                 <span className="bg-violet-500 block leading-none">
                   <Image src={microsoft3} alt="" className="hover:opacity-60" />
                 </span>
-                <h3 className="uppercase font-bold">MICROSOFT TEAMS</h3>
+                <h3 className="uppercase">MICROSOFT TEAMS</h3>
                 <p>
                   NICE Has You Covered | Distracting Hubbie Short Creative
                   Producer | TVC
