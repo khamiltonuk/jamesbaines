@@ -19,14 +19,14 @@ function Header() {
         <ul className="flex items-center justify-center uppercase">
           <li>
             <Link href="/">
-              <a className="px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
+              <a className="subtitle-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
                 Work
               </a>
             </Link>
           </li>
           <li>
             <Link href="/about-me">
-              <a className="px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
+              <a className="subtitle-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
                 about
               </a>
             </Link>

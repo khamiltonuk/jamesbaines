@@ -10,7 +10,7 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <meta name="title" content="James Baines - Producer"></meta>
+        <meta name="title" content="James Baines - Producer / Filmmaker"></meta>
         <meta
           name="description"
           content="Hi! I'm James, a freelance senior creative producer and filmmaker with
