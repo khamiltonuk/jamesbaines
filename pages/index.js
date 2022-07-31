@@ -19,6 +19,8 @@ Modal.setAppElement("#__next");
 const customStyles = {
   content: {
     top: "50%",
+    width: "75%",
+    maxHeight: "75%",
     left: "50%",
     right: "auto",
     bottom: "auto",
@@ -32,40 +34,30 @@ const latestWork = [
     title: "GILLETTE",
     vimeoId: "699393579",
     image: gillette1,
-    subtext:
-      "Master Your Style w/ Fred Sirieix Xmas Short Creative Producer / Co-Director | Online",
   },
   {
     title: "GILLETTE",
     vimeoId: "699397481",
     image: gillette2,
-    subtext:
-      "Master Your Style w/ Fred Sirieix Valentine’s Day Short Creative Producer / Co-Director | Online",
   },
   {
     title: "MICROSOFT TEAMS",
     vimeoId: "706235869",
     image: microsoft1,
-    subtext:
-      "NICE Has You Covered | Still in Bed Short Creative Producer | TVC",
   },
   {
     title: "MICROSOFT TEAMS",
     vimeoId: "698688434",
     image: microsoft2,
-    subtext:
-      "NICE Has You Covered | The Delivery Short Creative Producer | TVC",
   },
   {
     title: "MICROSOFT TEAMS",
     vimeoId: "706241133",
     image: microsoft3,
-    subtext:
-      "NICE Has You Covered | Distracting Hubbie Short Creative Producer | TVC",
   },
 ];
 
-const CustomModal = ({ title, vimeoId, image, subtext }) => {
+const CustomModal = ({ title, vimeoId, image }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -83,7 +75,7 @@ const CustomModal = ({ title, vimeoId, image, subtext }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="relative mb-8 bg-black" style={{ minHeight: "320px" }}>
+        <div className="relative mb-8 bg-black" style={{ minHeight: "420px" }}>
           <iframe
             src={`https://player.vimeo.com/video/${vimeoId}?h=afa1c40c1d&color=8a5cf6`}
             title="showreel"
@@ -99,8 +91,7 @@ const CustomModal = ({ title, vimeoId, image, subtext }) => {
             allowFullScreen
           ></iframe>
         </div>
-        <h2 className="subtitle-text font-bold mb-2">{title}</h2>
-        <p className="subtitle-text">{subtext}</p>
+        <h2 className="subtitle-text mb-2">{title}</h2>
       </Modal>
       <button
         onClick={openModal}
@@ -109,8 +100,7 @@ const CustomModal = ({ title, vimeoId, image, subtext }) => {
         <span className="block leading-none">
           <Image src={image} alt="" />
         </span>
-        <h3 className="subtitle-text font-bold mb-1">{title}</h3>
-        <p className="subtitle-text">{subtext}</p>
+        <h3 className="subtitle-text">{title}</h3>
       </button>
     </>
   );
@@ -148,7 +138,7 @@ export default function Home() {
           </div>
           <Script src="https://player.vimeo.com/api/player.js"></Script>
 
-          <h2 className="text-center subtitle-text mb-4 uppercase">
+          <h2 className="text-center subtitle-text font-bold mb-4 uppercase">
             latest Work
           </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-3 xl:grid-rows-3">

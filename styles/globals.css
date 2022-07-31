@@ -6,8 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 a {
@@ -24,7 +23,7 @@ a {
 }
 
 .header-text {
-  font-family: "Bentham", serif;
+  font-family: "Zen Kaku Gothic New", sans-serif;
 }
 .container {
   margin: 0 auto 100px;

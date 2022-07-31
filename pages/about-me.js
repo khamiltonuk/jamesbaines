@@ -21,8 +21,8 @@ export default function Home() {
         <Header />
 
         <div className="container mx-auto px-4 md:max-w-screen-lg lg:max-w-screen-xl">
-          <div className="grid md:gap-4 md:grid-cols-2">
-            <div className="">
+          <div className="md:flex">
+            <div className="md:pr-16">
               <Image
                 src={profilePic}
                 placeholder="blur"
@@ -30,26 +30,28 @@ export default function Home() {
                 alt="James standing in front of a bush, while holding a camera."
               />
             </div>
-            <div className="">
-              <p className="mb-8">
-                Hi! I&apos;m James, a freelance senior creative producer with
-                over ten years&apos; experience helping brands tell stories.
-              </p>
-              <p className="mb-8">
-                I specialise in video (branded content, TVC) and stills,
-                assisting throughout the entire storytelling process; from
-                forming the creative, strategy and art direction through to
-                production and execution. I&apos;ve been fortunate enough to
-                have worked with some amazing brands such as Nikon, BAFTA (EE),
-                Google (YouTube/Maps), Xbox, P&amp;G, Intel Gaming, Dolby, Sonos
-                and NET-A-PORTER to name a few.
-              </p>
-              <p className="mb-8">
-                Key skills and experience include organising, running and
-                directing domestic and international shoots, 3D animation,
-                senior client management/counsel, story development, copywriting
-                and photography.
-              </p>
+            <div className="flex items-center">
+              <div>
+                <p className="mb-8">
+                  Hi! I&apos;m James, a freelance senior creative producer with
+                  over ten years&apos; experience helping brands tell stories.
+                </p>
+                <p className="mb-8">
+                  I specialise in video (branded content, TVC) and stills,
+                  assisting throughout the entire storytelling process; from
+                  forming the creative, strategy and art direction through to
+                  production and execution. I&apos;ve been fortunate enough to
+                  have worked with some amazing brands such as Nikon, BAFTA
+                  (EE), Google (YouTube/Maps), Xbox, P&amp;G, Intel Gaming,
+                  Dolby, Sonos and NET-A-PORTER to name a few.
+                </p>
+                <p className="mb-8">
+                  Key skills and experience include organising, running and
+                  directing domestic and international shoots, 3D animation,
+                  senior client management/counsel, story development,
+                  copywriting and photography.
+                </p>
+              </div>
             </div>
           </div>
           <div className="flex flex-col md:justify-between md:flex-row my-8">
@@ -60,7 +62,7 @@ export default function Home() {
                     <PhoneIcon className="h-8 w-8 fill-white block" />
                   </div>
                   <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p>Call</p>
+                    <p className="uppercase">Call</p>
                     <p>+44 (0) 798 398 1093</p>
                   </div>
                 </div>
@@ -75,7 +77,7 @@ export default function Home() {
                   </div>
 
                   <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p>Email</p>
+                    <p className="uppercase">Email</p>
 
                     <p>jamesjohnbaines@gmail.com</p>
                   </div>
