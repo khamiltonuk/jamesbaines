@@ -20,7 +20,7 @@ export default function Home() {
       <main>
         <Header />
 
-        <div className="container mx-auto px-4 md:max-w-screen-lg lg:max-w-screen-xl">
+        <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
           <div className="md:flex">
             <div className="md:pr-16">
               <Image

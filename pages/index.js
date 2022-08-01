@@ -116,7 +116,7 @@ export default function Home() {
       <main>
         <Header />
 
-        <div className="container mx-auto px-4 md:max-w-screen-lg lg:max-w-screen-xl">
+        <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
           <div
             style={{ padding: "56.25% 0 0 0" }}
             className="relative mb-8 bg-black"
