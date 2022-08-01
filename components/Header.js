@@ -7,7 +7,7 @@ function Header() {
   return (
     <>
       <div>
-        <h1 className="text-center text-4xl md:text-5xl font-bold uppercase header-text mt-8">
+        <h1 className="text-center text-8xl md:text-10xl font-bold uppercase header-text mt-8">
           <Link href="/">James Baines</Link>
         </h1>
         <p className="subtitle-text text-center uppercase font-bold tracking-widest">

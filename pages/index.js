@@ -122,7 +122,7 @@ export default function Home() {
             className="relative mb-8 bg-black"
           >
             <iframe
-              src="https://player.vimeo.com/video/572182219?h=afa1c40c1d&autoplay=1&color=8a5cf6"
+              src="https://player.vimeo.com/video/725592672?h=afa1c40c1d&autoplay=1&color=8a5cf6"
               title="showreel"
               style={{
                 position: "absolute",
