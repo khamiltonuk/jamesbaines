@@ -17,7 +17,7 @@ export default function Document() {
                 over ten years experience helping brands tell stories."
         ></meta>
         <link
-          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <link

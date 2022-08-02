@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -18,13 +18,13 @@ a {
   box-sizing: border-box;
 }
 
-.subtitle-text {
+/* .subtitle-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 .header-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
-}
+} */
 .container {
   margin: 0 auto 100px;
 }
