@@ -8,12 +8,6 @@ import Modal from "react-modal";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import gillette1 from "../public/gillette-1.jpg";
-import gillette2 from "../public/gillette-2.jpg";
-import microsoft1 from "../public/microsoft-1.jpg";
-import microsoft2 from "../public/microsoft-2.jpg";
-import microsoft3 from "../public/microsoft-3.jpg";
-
 Modal.setAppElement("#__next");
 
 const customStyles = {
@@ -30,34 +24,6 @@ const customStyles = {
   },
 };
 
-const latestWork = [
-  {
-    title: "GILLETTE",
-    vimeoId: "699393579",
-    image: gillette1,
-  },
-  {
-    title: "GILLETTE",
-    vimeoId: "699397481",
-    image: gillette2,
-  },
-  {
-    title: "MICROSOFT TEAMS",
-    vimeoId: "706235869",
-    image: microsoft1,
-  },
-  {
-    title: "MICROSOFT TEAMS",
-    vimeoId: "698688434",
-    image: microsoft2,
-  },
-  {
-    title: "MICROSOFT TEAMS",
-    vimeoId: "706241133",
-    image: microsoft3,
-  },
-];
-
 const query = `
 {
   homepageCollection {
@@ -70,7 +36,6 @@ const query = `
 `;
 
 const CustomModal = ({ vimeoId }) => {
-  console.log("vimeoId", vimeoId);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const [video, setVideo] = useState(null);
