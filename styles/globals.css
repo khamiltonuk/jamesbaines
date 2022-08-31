@@ -18,6 +18,16 @@ a {
   box-sizing: border-box;
 }
 
+.video-player {
+  min-height: 380px;
+}
+
+@media (max-width: 480px) {
+  .video-player {
+    min-height: 180px;
+  }
+}
+
 /* .subtitle-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
 }

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Modal from "react-modal";
 
@@ -58,8 +58,39 @@ const latestWork = [
   },
 ];
 
-const CustomModal = ({ title, vimeoId, image }) => {
+const query = `
+{
+  homepageCollection {
+    items {
+      heroVideo
+      videosIds
+    }
+  }
+}
+`;
+
+const CustomModal = ({ vimeoId }) => {
+  console.log("vimeoId", vimeoId);
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [video, setVideo] = useState(null);
+
+  useEffect(() => {
+    window
+      .fetch(
+        `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`,
+        {
+          method: "get",
+          cache: "no-cache",
+          mode: "cors",
+        }
+      )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data", data);
+        setVideo(data);
+      });
+  }, [vimeoId]);
 
   function openModal() {
     setIsOpen(true);
@@ -68,6 +99,19 @@ const CustomModal = ({ title, vimeoId, image }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  if (!video) {
+    return null;
+  }
+
+  const {
+    title,
+    description,
+    thumbnail_url,
+    thumbnail_width,
+    thumbnail_height,
+  } = video;
+
   return (
     <>
       <Modal
@@ -76,7 +120,7 @@ const CustomModal = ({ title, vimeoId, image }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="relative mb-8 bg-black" style={{ minHeight: "420px" }}>
+        <div className="relative mb-8 bg-black video-player">
           <iframe
             src={`https://player.vimeo.com/video/${vimeoId}?h=afa1c40c1d&color=8a5cf6`}
             title="showreel"
@@ -99,15 +143,53 @@ const CustomModal = ({ title, vimeoId, image }) => {
         className="text-left hover:text-violet-500 text:fill-violet-500 mb-8 block"
       >
         <span className="block leading-none">
-          <Image src={image} alt="" />
+          <Image
+            src={thumbnail_url}
+            alt=""
+            width={thumbnail_width}
+            height={thumbnail_height}
+          />
         </span>
         <h3 className="subtitle-text">{title}</h3>
+        <p>{description}</p>
       </button>
     </>
   );
 };
 
 export default function Home() {
+  const [page, setPage] = useState(null);
+
+  useEffect(() => {
+    window
+      .fetch(
+        `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authenticate the request
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
+          },
+          // send the GraphQL query
+          body: JSON.stringify({ query }),
+        }
+      )
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+
+        // rerender the entire component with new data
+        setPage(data.homepageCollection.items[0]);
+      });
+  }, []);
+
+  if (!page) {
+    return "Loading...";
+  }
+  const { heroVideo, videosIds } = page;
   return (
     <div className="container">
       <Head>
@@ -123,7 +205,7 @@ export default function Home() {
             className="relative mb-8 bg-black"
           >
             <iframe
-              src="https://player.vimeo.com/video/725592672?h=afa1c40c1d&autoplay=1&color=8a5cf6"
+              src={`https://player.vimeo.com/video/${heroVideo}?h=afa1c40c1d&autoplay=1&color=8a5cf6`}
               title="showreel"
               style={{
                 position: "absolute",
@@ -143,10 +225,10 @@ export default function Home() {
             latest Work
           </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-3 xl:grid-rows-3">
-            {latestWork.map((props, index) => {
+            {videosIds.map((vimeoId, index) => {
               return (
                 <li key={index}>
-                  <CustomModal {...props} />
+                  <CustomModal vimeoId={vimeoId} />
                 </li>
               );
             })}

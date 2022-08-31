@@ -9,6 +9,9 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ["i.vimeocdn.com"],
+  },
   reactStrictMode: true,
   i18n: {
     locales: ["en"],

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 import profilePic from "../public/james-john-baines.jpg";
 import PhoneIcon from "../public/phone.svg";
@@ -10,7 +11,51 @@ import thumb from "../public/thumb.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+const query = `
+{
+  aboutMeCollection {
+    items {
+      aboutMePhoto {
+        title
+        url
+      }
+    }
+  }
+}
+`;
+
 export default function Home() {
+  const [page, setPage] = useState(null);
+
+  useEffect(() => {
+    window
+      .fetch(
+        `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authenticate the request
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
+          },
+          // send the GraphQL query
+          body: JSON.stringify({ query }),
+        }
+      )
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+
+        // rerender the entire component with new data
+        setPage(data.aboutMeCollection.items[0]);
+      });
+  }, []);
+
+  if (!page) {
+    return "Loading...";
+  }
   return (
     <div className="container">
       <Head>
