@@ -24,7 +24,7 @@ const customStyles = {
   },
 };
 
-const query = `
+const videoQuery = `
 {
   homepageCollection {
     items {
@@ -136,17 +136,17 @@ export default function Home() {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
           },
           // send the GraphQL query
-          body: JSON.stringify({ query }),
+          body: JSON.stringify({ query: videoQuery }),
         }
       )
       .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.error(errors);
+      .then((response) => {
+        if (response.errors) {
+          console.error(response.errors);
         }
 
         // rerender the entire component with new data
-        setPage(data.homepageCollection.items[0]);
+        setPage(response.data.homepageCollection.items[0]);
       });
   }, []);
 
@@ -156,10 +156,6 @@ export default function Home() {
   const { heroVideo, videosIds } = page;
   return (
     <div className="container">
-      <Head>
-        <title>James Baines - Producer / Filmmaker</title>
-      </Head>
-
       <main>
         <Header />
 
