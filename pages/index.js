@@ -151,7 +151,11 @@ export default function Home() {
   }, []);
 
   if (!page) {
-    return "Loading...";
+    return (
+      <div className="h-full flex justify-center items-center min-h-screen">
+        <span>Loading...</span>
+      </div>
+    );
   }
   const { heroVideo, videosIds } = page;
   return (
