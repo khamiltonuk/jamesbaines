@@ -30,15 +30,36 @@ a {
 
 /* .subtitle-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
-}
+}*/
 
 .header-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-} */
+  font-family: "mabry-medium", sans-serif;
+}
 .container {
   margin: 0 auto 100px;
 }
 
 .latest-work a:hover img {
   opacity: 0.7;
+}
+
+/*
+ * Web Fonts from colophon-foundry.org
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Colophon Foundry. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2022 Colophon Foundry
+ *
+ * Licenced to James Baines 
+ */
+
+@font-face {
+  font-family: "mabry-medium";
+  src: url("../asset/mabry-medium.woff2") format("woff2"),
+    url("../asset/mabry-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }

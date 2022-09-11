@@ -116,7 +116,7 @@ export default function Home() {
                     <PhoneIcon className="h-8 w-8 fill-white block" />
                   </div>
                   <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p className="uppercase">Call</p>
+                    <p className="uppercase header-text">Call</p>
                     <p>{page.phoneNumber}</p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export default function Home() {
                   </div>
 
                   <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p className="uppercase">Email</p>
+                    <p className="uppercase header-text">Email</p>
 
                     <p>{page.emailAddress}</p>
                   </div>

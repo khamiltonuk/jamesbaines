@@ -67,7 +67,7 @@ function Header() {
         <h1 className="text-center text-8xl md:text-10xl font-bold uppercase header-text mt-8">
           <Link href="/">{websiteTitle}</Link>
         </h1>
-        <p className="subtitle-text text-center uppercase font-bold tracking-widest">
+        <p className="header-text text-center uppercase font-bold tracking-widest">
           {websiteSubtitle}
         </p>
       </div>
@@ -76,14 +76,14 @@ function Header() {
         <ul className="flex items-center justify-center uppercase">
           <li>
             <Link href="/">
-              <a className="subtitle-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
+              <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
                 Work
               </a>
             </Link>
           </li>
           <li>
             <Link href="/about-me">
-              <a className="subtitle-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
+              <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
                 about
               </a>
             </Link>
