@@ -7,6 +7,7 @@ import Modal from "react-modal";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 Modal.setAppElement("#__next");
 
@@ -84,7 +85,7 @@ const CustomModal = ({ vimeoId }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="relative mb-8 bg-black video-player">
+        <div className="relative mb-4 md:mb-8 bg-black video-player">
           <iframe
             src={`https://player.vimeo.com/video/${vimeoId}?h=afa1c40c1d&color=8a5cf6`}
             title="showreel"
@@ -151,11 +152,7 @@ export default function Home() {
   }, []);
 
   if (!page) {
-    return (
-      <div className="h-full flex justify-center items-center min-h-screen">
-        <span>Loading...</span>
-      </div>
-    );
+    return <Loading />;
   }
   const { heroVideo, videosIds } = page;
   return (
@@ -185,7 +182,7 @@ export default function Home() {
           </div>
           <Script src="https://player.vimeo.com/api/player.js"></Script>
 
-          <h2 className="text-center subtitle-text font-bold mb-4 uppercase">
+          <h2 className="text-center header-text font-bold mb-4 uppercase">
             latest Work
           </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-3 xl:grid-rows-3">

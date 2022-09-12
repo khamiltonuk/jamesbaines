@@ -10,6 +10,7 @@ import thumb from "../public/thumb.png";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Loading from "../components/Footer";
 
 const query = `
 {
@@ -62,22 +63,12 @@ export default function Home() {
           console.error(errors);
         }
 
-        console.log(
-          "data.aboutMeCollection.items[0]",
-          data.aboutMeCollection.items[0]
-        );
-
-        // rerender the entire component with new data
         setPage(data.aboutMeCollection.items[0]);
       });
   }, []);
 
   if (!page) {
-    return (
-      <div className="h-full flex justify-center items-center min-h-screen">
-        <span>Loading...</span>
-      </div>
-    );
+    return <Loading />;
   }
 
   const { url, description, width, height } = page.aboutMePhoto;

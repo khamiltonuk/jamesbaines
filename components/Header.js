@@ -47,7 +47,7 @@ function Header() {
         if (errors) {
           console.error(errors);
         }
-        // rerender the entire component with new data
+
         setWebsiteTitle(data.websiteDataCollection.items[0].websiteTitle);
         setWebsiteSubtitle(data.websiteDataCollection.items[0].websiteSubtitle);
         setWebsiteMetaDescription(
