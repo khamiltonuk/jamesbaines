@@ -109,10 +109,10 @@ const CustomModal = ({ vimeoId }) => {
       >
         <span className="block leading-none">
           <Image
-            src={thumbnail_url}
+            src={thumbnail_url.replace("_295x166", "_590x332")}
             alt=""
-            width={thumbnail_width}
-            height={thumbnail_height}
+            width={thumbnail_width * 2}
+            height={thumbnail_height * 2}
           />
         </span>
         <h3 className="subtitle-text">{title}</h3>
