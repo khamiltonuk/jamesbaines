@@ -102,6 +102,7 @@ const CustomModal = ({ vimeoId }) => {
           ></iframe>
         </div>
         <h2 className="subtitle-text mb-2">{title}</h2>
+        <p>{description}</p>
       </Modal>
       <button
         onClick={openModal}
@@ -116,7 +117,6 @@ const CustomModal = ({ vimeoId }) => {
           />
         </span>
         <h3 className="subtitle-text">{title}</h3>
-        <p>{description}</p>
       </button>
     </>
   );
