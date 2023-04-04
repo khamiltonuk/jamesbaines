@@ -29,7 +29,7 @@ a {
 }
 
 .description-txt {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 /* .subtitle-text {
