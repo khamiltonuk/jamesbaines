@@ -28,6 +28,10 @@ a {
   }
 }
 
+.description-txt {
+  white-space: pre;
+}
+
 /* .subtitle-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
 }*/

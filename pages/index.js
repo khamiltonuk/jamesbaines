@@ -77,6 +77,8 @@ const CustomModal = ({ vimeoId }) => {
     thumbnail_height,
   } = video;
 
+  console.log("description", description);
+
   return (
     <>
       <Modal
@@ -102,7 +104,7 @@ const CustomModal = ({ vimeoId }) => {
           ></iframe>
         </div>
         <h2 className="subtitle-text mb-2">{title}</h2>
-        <p>{description}</p>
+        <span className="description-txt">{description}</span>
       </Modal>
       <button
         onClick={openModal}
