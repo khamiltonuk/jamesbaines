@@ -77,10 +77,17 @@ function Header() {
           <li>
             <Link href="/">
               <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
-                Work
+                Home
               </a>
             </Link>
           </li>
+          {/* <li>
+            <Link href="/stills">
+              <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
+                Stills
+              </a>
+            </Link>
+          </li> */}
           <li>
             <Link href="/about-me">
               <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">

@@ -32,9 +32,9 @@ a {
   white-space: pre-wrap;
 }
 
-/* .subtitle-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-}*/
+.subtitle-text {
+  font-family: "mabry-medium", sans-serif;
+}
 
 .header-text {
   font-family: "mabry-medium", sans-serif;

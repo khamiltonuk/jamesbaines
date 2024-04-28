@@ -77,7 +77,6 @@ const CustomModal = ({ vimeoId }) => {
     thumbnail_height,
   } = video;
 
-  console.log("description", description);
 
   return (
     <>
