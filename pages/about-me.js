@@ -73,7 +73,6 @@ export default function Home() {
 
   const { url, description, width, height } = page.aboutMePhoto;
   const { json: document } = page.aboutMeDescription;
-
   return (
     <div className="container">
       <main>
@@ -81,17 +80,17 @@ export default function Home() {
 
         <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
           <div className="md:flex">
-            <div className="md:pr-16">
+            <div className="md:pr-16 flex-1">
               <Image
-                src={url}
+                src={`${url}?w=501&h=753&fm=jpg&fl=progressive`}
                 placeholder="blur"
                 blurDataURL={thumb}
-                width={width}
-                height={height}
+                width="501"
+                height="753"
                 alt={description}
               />
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center flex-1">
               <div
                 dangerouslySetInnerHTML={{
                   __html: documentToHtmlString(document, options),

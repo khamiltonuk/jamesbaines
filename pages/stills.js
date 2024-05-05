@@ -64,15 +64,15 @@ const CustomModal = ({ photo }) => {
         contentLabel="Example Modal"
       >
         <div className="relative mb-4 md:mb-8">
-          <Carousel showThumbs={false}>
+          <Carousel showThumbs={false} showIndicators>
             {photo.photosCollection.items.map((photo, i) => {
               return (
-                <div key={i} className="bg-black">
+                <div key={i} className="w-full">
                   <Image
-                    src={`${photo.url}?fit=fill&w=600&h=600`}
+                    src={`${photo.url}?fit=pad&w=853&h=480&bg=rgb:000000`}
                     alt={photo.title}
-                    width={400}
-                    height={400}
+                    width="853"
+                    height="480"
                   />
                   <p className="legend">{photo.title}</p>
                 </div>
@@ -89,9 +89,9 @@ const CustomModal = ({ photo }) => {
       >
         <Image
           alt={thumbnail.title}
-          src={`${thumbnail.url}?fit=fill&w=400&h=400`}
-          width="400"
-          height="400"
+          src={`${thumbnail.url}?fit=fill&w=492&h=276`}
+          width="492"
+          height="276"
         />
         <h3 className="subtitle-text  mb-2">{photo.title}</h3>
       </button>
@@ -135,17 +135,17 @@ export default function Stills() {
     <div className="container">
       <main>
         <Header />
-
-        <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-3 xl:grid-rows-3 justify-items-center">
-          {page.map((photo, i) => {
-            return (
-              <li key={i}>
-                <CustomModal photo={photo} />
-              </li>
-            );
-          })}
-        </ul>
-
+        <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
+          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
+            {page.map((photo, i) => {
+              return (
+                <li key={i}>
+                  <CustomModal photo={photo} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <Footer />
       </main>
     </div>

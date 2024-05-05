@@ -15,7 +15,7 @@ const customStyles = {
   content: {
     top: "50%",
     width: "75%",
-    maxWidth: "700px",
+    maxWidth: "900px",
     maxHeight: "75%",
     left: "50%",
     right: "auto",
@@ -76,7 +76,6 @@ const CustomModal = ({ vimeoId }) => {
     thumbnail_width,
     thumbnail_height,
   } = video;
-
 
   return (
     <>
@@ -186,7 +185,7 @@ export default function Home() {
           <h2 className="text-center header-text font-bold mb-4 uppercase">
             latest Work
           </h2>
-          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-3 xl:grid-rows-3">
+          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
             {videosIds.map((vimeoId, index) => {
               return (
                 <li key={index}>
