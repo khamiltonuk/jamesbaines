@@ -19,18 +19,7 @@ a {
 }
 
 .video-player {
-  min-height: 480px;
-}
-
-@media (max-width: 800px) {
-  .video-player {
-    min-height: 380px;
-  }
-}
-@media (max-width: 600px) {
-  .video-player {
-    min-height: 280px;
-  }
+  min-height: 380px;
 }
 
 @media (max-width: 480px) {
@@ -77,4 +66,7 @@ a {
     url("../asset/mabry-medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+.slide p.legend {
+  display: none;
 }

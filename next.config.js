@@ -10,7 +10,12 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["i.vimeocdn.com", "images.ctfassets.net", "placekitten.com"],
+    domains: [
+      "i.vimeocdn.com",
+      "images.ctfassets.net",
+      "placekitten.com",
+      "downloads.ctfassets.net",
+    ],
   },
   reactStrictMode: true,
   i18n: {

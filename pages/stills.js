@@ -89,8 +89,8 @@ const CustomModal = ({ photo }) => {
       >
         <Image
           alt={thumbnail.title}
-          src={`${thumbnail.url}?fit=fill&w=492&h=276`}
-          width="492"
+          src={`${thumbnail.url}?fit=fill&w=491&h=276`}
+          width="491"
           height="276"
         />
         <h3 className="subtitle-text  mb-2">{photo.title}</h3>
