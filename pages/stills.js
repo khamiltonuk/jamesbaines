@@ -30,6 +30,7 @@ const query = `
       items {
         title
         descriptionOfProject
+        videoId
         photosCollection {
           items {
             url
@@ -44,9 +45,10 @@ const query = `
   }
 `;
 
-const CustomModal = ({ photo }) => {
+const CustomModal = ({ work }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const thumbnail = photo.photosCollection.items[0];
+  console.log("work", work);
+  const thumbnail = work.photosCollection.items[0];
 
   function openModal() {
     setIsOpen(true);
@@ -55,6 +57,12 @@ const CustomModal = ({ photo }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  // if (thumbnail == null && !work.videoId) {
+  if (thumbnail == null) {
+    return null;
+  }
+
   return (
     <>
       <Modal
@@ -65,7 +73,7 @@ const CustomModal = ({ photo }) => {
       >
         <div className="relative mb-4 md:mb-8">
           <Carousel showThumbs={false} showIndicators>
-            {photo.photosCollection.items.map((photo, i) => {
+            {work.photosCollection.items.map((photo, i) => {
               return (
                 <div key={i} className="w-full">
                   <Image
@@ -79,8 +87,8 @@ const CustomModal = ({ photo }) => {
               );
             })}
           </Carousel>
-          <h3 className="subtitle-text my-2">{photo.title}</h3>
-          <p className="description-txt">{photo.descriptionOfProject}</p>
+          <h3 className="subtitle-text my-2">{work.title}</h3>
+          <p className="description-txt">{work.descriptionOfProject}</p>
         </div>
       </Modal>
       <button
@@ -93,7 +101,7 @@ const CustomModal = ({ photo }) => {
           width="491"
           height="276"
         />
-        <h3 className="subtitle-text  mb-2">{photo.title}</h3>
+        <h3 className="subtitle-text  mb-2">{work.title}</h3>
       </button>
     </>
   );
@@ -137,10 +145,13 @@ export default function Stills() {
         <Header />
         <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
-            {page.map((photo, i) => {
+            {page.map((work, i) => {
+              if (work.videoId) {
+                return null;
+              }
               return (
                 <li key={i}>
-                  <CustomModal photo={photo} />
+                  <CustomModal work={work} />
                 </li>
               );
             })}
