@@ -77,7 +77,7 @@ function Header() {
           <li>
             <Link href="/">
               <a className="header-text px-8 py-8 block hover:text-violet-500 focus:text-violet-500">
-                Home
+                Film
               </a>
             </Link>
           </li>
