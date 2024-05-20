@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "mabry-medium", sans-serif;
+  font-family: "mabry-light", sans-serif;
 }
 
 a {
@@ -32,6 +32,9 @@ a {
   white-space: pre-wrap;
 }
 
+button {
+  font-family: "mabry-medium", sans-serif;
+}
 .subtitle-text {
   font-family: "mabry-medium", sans-serif;
 }
@@ -64,6 +67,13 @@ a {
   font-family: "mabry-medium";
   src: url("../asset/mabry-medium.woff2") format("woff2"),
     url("../asset/mabry-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "mabry-light";
+  src: url("../asset/MabryPro-Light.woff2") format("woff2"),
+    url("../asset/MabryPro-Light.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
