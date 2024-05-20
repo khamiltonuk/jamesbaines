@@ -82,11 +82,11 @@ export default function Home() {
           <div className="md:flex">
             <div className="md:pr-16 flex-1">
               <Image
-                src={`${url}?w=501&h=753&fm=jpg&fl=progressive`}
+                src={`${url}?w=952&h=1203&fm=jpg&fl=progressive`}
                 placeholder="blur"
                 blurDataURL={thumb}
-                width="501"
-                height="753"
+                width="952"
+                height="1203"
                 alt={description}
               />
             </div>

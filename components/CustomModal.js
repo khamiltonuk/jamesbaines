@@ -1,16 +1,12 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import { useState } from "react";
 import Modal from "react-modal";
+import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Loading from "../components/Footer";
 import Thumbnail from "../components/Thumbnail";
 import VideoThumbnail from "../components/VideoThumbnail";
 import Video from "../components/Video";
-
 import EnterFullScreenIcon from "../public/full-screen-svgrepo-com.svg";
 import ExitFullScreenIcon from "../public/full-screen-exit-svgrepo-com.svg";
 
@@ -34,28 +30,7 @@ const fullSizeStyles = {
   content: {},
 };
 
-const query = `
-{
-    photosCollection {
-      items {
-        title
-        descriptionOfProject
-        videoId
-        photosCollection {
-          items {
-            url
-            title
-            width
-            height
-          }
-        }
-      }
-    }
-    
-  }
-`;
-
-const CustomModal = ({ work }) => {
+export default function CustomModal({ work }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isFullsize, setIsFullsize] = useState(false);
 
@@ -142,7 +117,7 @@ const CustomModal = ({ work }) => {
               )}
             </button>
           </div>
-          <h3 className="subtitle-text my-2">{work.title}</h3>
+          <h3 className="subtitle-text my-2 text-xl">{work.title}</h3>
           <p className="description-txt">{work.descriptionOfProject}</p>
         </div>
       </Modal>
@@ -155,58 +130,5 @@ const CustomModal = ({ work }) => {
         <h3 className="subtitle-text  mb-2">{work.title}</h3>
       </button>
     </>
-  );
-};
-
-export default function Stills() {
-  const [page, setPage] = useState(null);
-
-  useEffect(() => {
-    window
-      .fetch(
-        `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // Authenticate the request
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
-          },
-          // send the GraphQL query
-          body: JSON.stringify({ query }),
-        }
-      )
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.error(errors);
-        }
-
-        setPage(data.photosCollection.items);
-      });
-  }, []);
-
-  if (!page) {
-    return <Loading />;
-  }
-
-  return (
-    <div className="container">
-      <main>
-        <Header />
-        <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
-          <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
-            {page.map((work, i) => {
-              return (
-                <li key={i}>
-                  <CustomModal work={work} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <Footer />
-      </main>
-    </div>
   );
 }

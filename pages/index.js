@@ -1,15 +1,38 @@
-import Head from "next/head";
 import Script from "next/script";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
-import Modal from "react-modal";
-
 import Header from "../components/Header";
+import Video from "../components/Video";
 import Footer from "../components/Footer";
 import Loading from "../components/Loading";
+import CustomModal from "../components/CustomModal";
 
-Modal.setAppElement("#__next");
+const query = `
+{
+  homepageCollection {
+    items {
+      heroVideo
+    }
+  }
+    photosCollection {
+      items {
+        title
+        descriptionOfProject
+        videoId
+        workDate
+        photosCollection {
+          items {
+            url
+            title
+            width
+            height
+          }
+        }
+      }
+    }
+    
+  }
+`;
 
 const customStyles = {
   content: {
@@ -25,105 +48,9 @@ const customStyles = {
   },
 };
 
-const videoQuery = `
-{
-  homepageCollection {
-    items {
-      heroVideo
-      videosIds
-    }
-  }
-}
-`;
-
-const CustomModal = ({ vimeoId }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const [video, setVideo] = useState(null);
-
-  useEffect(() => {
-    window
-      .fetch(
-        `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`,
-        {
-          method: "get",
-          cache: "no-cache",
-          mode: "cors",
-        }
-      )
-      .then((response) => response.json())
-      .then((data) => {
-        setVideo(data);
-      });
-  }, [vimeoId]);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  if (!video) {
-    return null;
-  }
-
-  const {
-    title,
-    description,
-    thumbnail_url,
-    thumbnail_width,
-    thumbnail_height,
-  } = video;
-
-  return (
-    <>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <div className="relative mb-4 md:mb-8 bg-black video-player">
-          <iframe
-            src={`https://player.vimeo.com/video/${vimeoId}?h=afa1c40c1d&color=8a5cf6`}
-            title="showreel"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-        <h2 className="subtitle-text mb-2">{title}</h2>
-        <span className="description-txt">{description}</span>
-      </Modal>
-      <button
-        onClick={openModal}
-        className="text-left hover:text-violet-500 text:fill-violet-500 mb-8 block"
-      >
-        <span className="block leading-none">
-          <Image
-            src={thumbnail_url.replace("_295x166", "_590x332")}
-            alt=""
-            width={thumbnail_width * 2}
-            height={thumbnail_height * 2}
-          />
-        </span>
-        <h3 className="subtitle-text">{title}</h3>
-      </button>
-    </>
-  );
-};
-
 export default function Home() {
-  const [page, setPage] = useState(null);
+  const [works, setWorks] = useState(null);
+  const [heroVideoId, setHeroVideoId] = useState(null);
 
   useEffect(() => {
     window
@@ -137,24 +64,33 @@ export default function Home() {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
           },
           // send the GraphQL query
-          body: JSON.stringify({ query: videoQuery }),
+          body: JSON.stringify({ query }),
         }
       )
       .then((response) => response.json())
-      .then((response) => {
-        if (response.errors) {
-          console.error(response.errors);
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
         }
-
+        console.log(
+          "data.homepageCollection",
+          data.homepageCollection.items[0]
+        );
+        setHeroVideoId(data.homepageCollection.items[0].heroVideo);
         // rerender the entire component with new data
-        setPage(response.data.homepageCollection.items[0]);
+
+        const sortedWorks = data.photosCollection.items.sort((a, b) => {
+          return new Date(b.workDate) - new Date(a.workDate);
+        });
+
+        setWorks(sortedWorks);
       });
   }, []);
 
-  if (!page) {
+  if (!works) {
     return <Loading />;
   }
-  const { heroVideo, videosIds } = page;
+
   return (
     <div className="container">
       <main>
@@ -165,20 +101,7 @@ export default function Home() {
             style={{ padding: "56.25% 0 0 0" }}
             className="relative mb-8 bg-black"
           >
-            <iframe
-              src={`https://player.vimeo.com/video/${heroVideo}?h=afa1c40c1d&autoplay=1&color=8a5cf6`}
-              title="showreel"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-              }}
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <Video videoId={heroVideoId} />
           </div>
           <Script src="https://player.vimeo.com/api/player.js"></Script>
 
@@ -186,10 +109,10 @@ export default function Home() {
             latest Work
           </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
-            {videosIds.map((vimeoId, index) => {
+            {works.map((work, index) => {
               return (
                 <li key={index}>
-                  <CustomModal vimeoId={vimeoId} />
+                  <CustomModal work={work} />
                 </li>
               );
             })}
