@@ -84,10 +84,6 @@ export default function Home() {
       });
   }, []);
 
-  if (!works) {
-    return <Loading />;
-  }
-
   return (
     <div className="container">
       <main>
@@ -98,7 +94,7 @@ export default function Home() {
             style={{ padding: "56.25% 0 0 0" }}
             className="relative mb-8 bg-black"
           >
-            <Video videoId={heroVideoId} />
+            {heroVideoId && <Video videoId={heroVideoId} />}
           </div>
           <Script src="https://player.vimeo.com/api/player.js"></Script>
 
@@ -106,13 +102,31 @@ export default function Home() {
             latest Work
           </h2>
           <ul className="latest-work grid gap-0 grid-cols-1 grid-rows-1 md:gap-2 md:grid-cols-2 md:grid-rows-2 justify-items-center">
-            {works.map((work, index) => {
-              return (
-                <li key={index}>
-                  <CustomModal work={work} />
-                </li>
-              );
-            })}
+            {!works && (
+              <>
+                {Array(9)
+                  .fill(0)
+                  .map((_, index) => {
+                    return (
+                      <li key={index}>
+                        <div className="image-placeholder placeholder"></div>
+                        <div className="title-placeholder placeholder"></div>
+                      </li>
+                    );
+                  })}
+              </>
+            )}
+            {works && (
+              <>
+                {works.map((work, index) => {
+                  return (
+                    <li key={index}>
+                      <CustomModal work={work} />
+                    </li>
+                  );
+                })}
+              </>
+            )}
           </ul>
         </div>
 

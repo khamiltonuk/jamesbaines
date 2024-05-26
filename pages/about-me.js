@@ -67,10 +67,6 @@ export default function Home() {
       });
   }, []);
 
-  if (!page) {
-    return <Loading />;
-  }
-
   const { url, description, width, height } = page.aboutMePhoto;
   const { json: document } = page.aboutMeDescription;
   return (
@@ -79,56 +75,62 @@ export default function Home() {
         <Header />
 
         <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
-          <div className="md:flex">
-            <div className="md:pr-16 flex-1">
-              <Image
-                src={`${url}?w=952&h=1203&fm=jpg&fl=progressive`}
-                placeholder="blur"
-                blurDataURL={thumb}
-                width="952"
-                height="1203"
-                alt={description}
-              />
-            </div>
-            <div className="flex items-center flex-1">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: documentToHtmlString(document, options),
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-col md:justify-between md:flex-row my-8">
-            <Link href={`tel:{page.phoneNumber}`}>
-              <a className="group">
-                <div className="flex items-center mb-4">
-                  <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
-                    <PhoneIcon className="h-8 w-8 fill-white block" />
-                  </div>
-                  <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p className="uppercase header-text">Call</p>
-                    <p>{page.phoneNumber}</p>
-                  </div>
+          {!page && <Loading />}
+          {page && (
+            <>
+              <div className="md:flex">
+                <div className="md:pr-16 flex-1">
+                  <Image
+                    src={`${url}?w=952&h=1203&fm=jpg&fl=progressive`}
+                    placeholder="blur"
+                    blurDataURL={thumb}
+                    width="952"
+                    height="1203"
+                    alt={description}
+                  />
                 </div>
-              </a>
-            </Link>
-
-            <Link href={`mailto:${page.emailAddress}`}>
-              <a className="group">
-                <div className="flex items-center mb-4">
-                  <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
-                    <EmailIcon className="h-8 w-8 fill-white" />
-                  </div>
-
-                  <div className="group-hover:text-violet-500 group-focus:text-violet-500">
-                    <p className="uppercase header-text">Email</p>
-
-                    <p>{page.emailAddress}</p>
-                  </div>
+                <div className="flex items-center flex-1">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: documentToHtmlString(document, options),
+                    }}
+                  />
                 </div>
-              </a>
-            </Link>
-          </div>
+              </div>
+              <div className="flex flex-col md:justify-between md:flex-row my-8">
+                <Link href={`tel:{page.phoneNumber}`}>
+                  <a className="group">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
+                        <PhoneIcon className="h-8 w-8 fill-white block" />
+                      </div>
+                      <div className="group-hover:text-violet-500 group-focus:text-violet-500">
+                        <p className="uppercase header-text">Call</p>
+                        <p>{page.phoneNumber}</p>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+
+                <Link href={`mailto:${page.emailAddress}`}>
+                  <a className="group">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
+                        <EmailIcon className="h-8 w-8 fill-white" />
+                      </div>
+
+                      <div className="group-hover:text-violet-500 group-focus:text-violet-500">
+                        <p className="uppercase header-text">Email</p>
+
+                        <p>{page.emailAddress}</p>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </div>
+            </>
+          )}
+
           <Footer />
         </div>
       </main>
