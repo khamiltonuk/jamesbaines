@@ -88,7 +88,7 @@ button {
   height: 16px !important;
 }
 .carousel .control-dots {
-  margin: 0 !important;
+  position: static !important;
 }
 
 .carousel .slide iframe {
