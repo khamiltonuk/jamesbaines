@@ -80,3 +80,17 @@ button {
 .slide p.legend {
   display: none;
 }
+
+.carousel .control-dots .dot {
+  background: black !important;
+  border-radius: 0.375rem !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+.carousel .control-dots {
+  margin: 0 !important;
+}
+
+.carousel .slide iframe {
+  margin: 0 !important;
+}

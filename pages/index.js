@@ -72,10 +72,7 @@ export default function Home() {
         if (errors) {
           console.error(errors);
         }
-        console.log(
-          "data.homepageCollection",
-          data.homepageCollection.items[0]
-        );
+
         setHeroVideoId(data.homepageCollection.items[0].heroVideo);
         // rerender the entire component with new data
 
