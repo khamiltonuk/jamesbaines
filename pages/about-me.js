@@ -114,8 +114,7 @@ export default function AboutMe({
                 </div>
               </div>
               <div className="flex flex-col md:justify-between md:flex-row my-8">
-                <Link href={`tel:${page.phoneNumber}`}>
-                  <a className="group">
+                <Link href={`tel:${page.phoneNumber}`} className="group">
                     <div className="flex items-center mb-4">
                       <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
                         <PhoneIcon className="h-8 w-8 fill-white block" />
@@ -125,11 +124,9 @@ export default function AboutMe({
                         <p>{page.phoneNumber}</p>
                       </div>
                     </div>
-                  </a>
                 </Link>
 
-                <Link href={`mailto:${page.emailAddress}`}>
-                  <a className="group">
+                <Link href={`mailto:${page.emailAddress}`} className="group">
                     <div className="flex items-center mb-4">
                       <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
                         <EmailIcon className="h-8 w-8 fill-white" />
@@ -141,7 +138,6 @@ export default function AboutMe({
                         <p>{page.emailAddress}</p>
                       </div>
                     </div>
-                  </a>
                 </Link>
               </div>
             </>

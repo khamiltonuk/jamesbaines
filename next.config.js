@@ -1,20 +1,20 @@
 /** @type {import('next').NextConfig} */
 
 module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-
-    return config;
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+    },
   },
   images: {
-    domains: [
-      "i.vimeocdn.com",
-      "images.ctfassets.net",
-      "placekitten.com",
-      "downloads.ctfassets.net",
+    remotePatterns: [
+      { hostname: "i.vimeocdn.com" },
+      { hostname: "images.ctfassets.net" },
+      { hostname: "placekitten.com" },
+      { hostname: "downloads.ctfassets.net" },
     ],
   },
   reactStrictMode: true,
