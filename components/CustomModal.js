@@ -30,7 +30,7 @@ const fullSizeStyles = {
   content: {},
 };
 
-export default function CustomModal({ work }) {
+export default function CustomModal({ work, vimeoThumbnails }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isFullsize, setIsFullsize] = useState(false);
 
@@ -125,7 +125,12 @@ export default function CustomModal({ work }) {
         onClick={openModal}
         className="text-left hover:text-violet-500 text:fill-violet-500 mb-8 block"
       >
-        {work.videoId && <VideoThumbnail work={work} />}
+        {work.videoId && (
+          <VideoThumbnail
+            work={work}
+            thumbnailData={vimeoThumbnails?.[work.videoId]}
+          />
+        )}
         {work.videoId == null && <Thumbnail thumbnail={thumbnail} />}
         <h3 className="subtitle-text  mb-2">{work.title}</h3>
       </button>

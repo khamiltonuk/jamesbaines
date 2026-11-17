@@ -1,67 +1,39 @@
 import Link from "next/link";
 import Head from "next/head";
 
-import { useState, useEffect } from "react";
-
 import InstagramIcon from "../public/instagram.svg";
 import LinkedinIcon from "../public/linkedin.svg";
 
-const websiteDataQuery = `
-{
-  websiteDataCollection {
-      items{
-        websiteTitle,
-        websiteSubtitle,
-        websiteMetaDecription
-      }
-  }
-}
-`;
+const defaults = {
+  title: "James Baines",
+  subtitle: "Producer / Filmmaker",
+  description:
+    "Hi! I'm James, a freelance senior creative producer and filmmaker with over ten years experience helping brands tell stories.",
+};
 
-function Header() {
-  const [websiteTitle, setWebsiteTitle] = useState("James Baines");
-  const [websiteSubtitle, setWebsiteSubtitle] = useState(
-    "Producer / Filmmaker"
-  );
-  const [websiteMetaDescription, setWebsiteMetaDescription] =
-    useState(`Hi! I'm James, a freelance senior creative producer and filmmaker with
-  over ten years experience helping brands tell stories.`);
+function Header({
+  websiteTitle = defaults.title,
+  websiteSubtitle = defaults.subtitle,
+  websiteMetaDescription = defaults.description,
+  pageTitle,
+}) {
+  const title = pageTitle || `${websiteTitle} - ${websiteSubtitle}`;
 
-  useEffect(() => {
-    window
-      .fetch(
-        `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // Authenticate the request
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
-          },
-          // send the GraphQL query
-          body: JSON.stringify({ query: websiteDataQuery }),
-        }
-      )
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.error(errors);
-        }
-
-        setWebsiteTitle(data.websiteDataCollection.items[0].websiteTitle);
-        setWebsiteSubtitle(data.websiteDataCollection.items[0].websiteSubtitle);
-        setWebsiteMetaDescription(
-          data.websiteDataCollection.items[0].websiteTitle
-        );
-      });
-  }, []);
   return (
     <>
       <Head>
-        <title>
-          {websiteTitle} - {websiteSubtitle}
-        </title>
-        <meta name="description" content={websiteMetaDescription}></meta>
+        <title>{title}</title>
+        <meta name="description" content={websiteMetaDescription} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={websiteMetaDescription} />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={websiteMetaDescription} />
       </Head>
       <div>
         <h1 className="text-center text-8xl md:text-10xl font-bold uppercase header-text mt-8">

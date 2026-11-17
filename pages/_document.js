@@ -2,24 +2,8 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <meta name="title" content="James Baines - Producer / Filmmaker"></meta>
-        <meta
-          name="description"
-          content="Hi! I'm James, a freelance senior creative producer and filmmaker with
-                over ten years experience helping brands tell stories."
-        ></meta>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"

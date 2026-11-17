@@ -69,6 +69,7 @@ button {
     url("../asset/mabry-medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "mabry-light";
@@ -76,6 +77,7 @@ button {
     url("../asset/MabryPro-Light.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 .slide p.legend {
   display: none;
@@ -124,7 +126,7 @@ button {
   margin-bottom: 2rem;
 }
 @keyframes gradient {
-  form {
+  from {
     left: 0%;
   }
 

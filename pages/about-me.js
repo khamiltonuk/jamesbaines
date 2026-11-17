@@ -1,32 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
+import { fetchContentful } from "../lib/contentful";
 import PhoneIcon from "../public/phone.svg";
 import EmailIcon from "../public/email.svg";
 import thumb from "../public/thumb.png";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Loading from "../components/Footer";
+import Loading from "../components/Loading";
 
-const query = `
+const aboutMeQuery = `
 {
   aboutMeCollection {
     items {
       aboutMePhoto {
-        url,
-        description,
-        width,
+        url
+        description
+        width
         height
-      },
+      }
       aboutMeDescription {
-        json,
-      },
-      phoneNumber,
+        json
+      }
+      phoneNumber
       emailAddress
+    }
+  }
+}
+`;
+
+const websiteDataQuery = `
+{
+  websiteDataCollection {
+    items {
+      websiteTitle
+      websiteSubtitle
+      websiteMetaDecription
     }
   }
 }
@@ -39,40 +51,41 @@ const options = {
   },
 };
 
-export default function Home() {
-  const [page, setPage] = useState(null);
+export async function getStaticProps() {
+  const [aboutData, websiteData] = await Promise.all([
+    fetchContentful(aboutMeQuery),
+    fetchContentful(websiteDataQuery),
+  ]);
 
-  useEffect(() => {
-    window
-      .fetch(
-        `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // Authenticate the request
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
-          },
-          // send the GraphQL query
-          body: JSON.stringify({ query }),
-        }
-      )
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.error(errors);
-        }
+  const page = aboutData.aboutMeCollection.items[0] || null;
+  const site = websiteData.websiteDataCollection.items[0] || {};
 
-        setPage(data.aboutMeCollection.items[0]);
-      });
-  }, []);
+  return {
+    props: {
+      page,
+      websiteTitle: site.websiteTitle || null,
+      websiteSubtitle: site.websiteSubtitle || null,
+      websiteMetaDescription: site.websiteMetaDecription || null,
+    },
+    revalidate: 60,
+  };
+}
 
-  const { url, description, width, height } = page.aboutMePhoto;
-  const { json: document } = page.aboutMeDescription;
+export default function AboutMe({
+  page,
+  websiteTitle,
+  websiteSubtitle,
+  websiteMetaDescription,
+}) {
   return (
     <div className="container">
       <main>
-        <Header />
+        <Header
+          websiteTitle={websiteTitle}
+          websiteSubtitle={websiteSubtitle}
+          websiteMetaDescription={websiteMetaDescription}
+          pageTitle={`About Me — ${websiteTitle || "James Baines"}`}
+        />
 
         <div className="container mx-auto px-4 md:max-w-screen-md lg:max-w-screen-lg">
           {!page && <Loading />}
@@ -81,24 +94,27 @@ export default function Home() {
               <div className="md:flex">
                 <div className="md:pr-16 flex-1">
                   <Image
-                    src={`${url}?w=952&h=1203&fm=jpg&fl=progressive`}
+                    src={`${page.aboutMePhoto.url}?w=952&h=1203&fm=jpg&fl=progressive`}
                     placeholder="blur"
                     blurDataURL={thumb}
                     width="952"
                     height="1203"
-                    alt={description}
+                    alt={page.aboutMePhoto.description}
                   />
                 </div>
                 <div className="flex items-center flex-1">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: documentToHtmlString(document, options),
+                      __html: documentToHtmlString(
+                        page.aboutMeDescription.json,
+                        options
+                      ),
                     }}
                   />
                 </div>
               </div>
               <div className="flex flex-col md:justify-between md:flex-row my-8">
-                <Link href={`tel:{page.phoneNumber}`}>
+                <Link href={`tel:${page.phoneNumber}`}>
                   <a className="group">
                     <div className="flex items-center mb-4">
                       <div className="bg-black group-hover:bg-violet-500 group-focus:bg-violet-500 rounded-full p-4 mr-2">
