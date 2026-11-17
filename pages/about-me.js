@@ -96,7 +96,7 @@ export default function AboutMe({
                   <Image
                     src={`${page.aboutMePhoto.url}?w=952&h=1203&fm=jpg&fl=progressive`}
                     placeholder="blur"
-                    blurDataURL={thumb}
+                    blurDataURL={thumb.blurDataURL}
                     width="952"
                     height="1203"
                     alt={page.aboutMePhoto.description}

@@ -9,8 +9,8 @@ export default function Video({ videoId }) {
         left: 0,
         width: "100%",
         height: "100%",
+        border: "none",
       }}
-      frameBorder="0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowFullScreen
     ></iframe>
