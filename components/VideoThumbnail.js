@@ -1,6 +1,15 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+/**
+ * Rewrite a Vimeo thumbnail URL to request a specific size.
+ * Vimeo CDN URLs end with _WIDTHxHEIGHT — the suffix varies
+ * per video, so we use a regex instead of a hardcoded replace.
+ */
+function getVimeoThumbnailUrl(url, width, height) {
+  return url.replace(/_\d+x\d+/, `_${width}x${height}`);
+}
+
 export default function VideoThumbnail({ work, thumbnailData }) {
   const { videoId } = work;
   const [video, setVideo] = useState(thumbnailData || null);
@@ -30,14 +39,14 @@ export default function VideoThumbnail({ work, thumbnailData }) {
     return null;
   }
 
-  const { title, thumbnail_url, thumbnail_width, thumbnail_height } = video;
+  const { title, thumbnail_url } = video;
 
   return (
     <Image
-      src={thumbnail_url.replace("_295x166", "_590x332")}
+      src={getVimeoThumbnailUrl(thumbnail_url, 491, 276)}
       alt={title}
-      width={thumbnail_width * 2}
-      height={thumbnail_height * 2}
+      width={491}
+      height={276}
     />
   );
 }
